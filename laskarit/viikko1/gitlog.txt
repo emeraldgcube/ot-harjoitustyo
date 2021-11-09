@@ -1,0 +1,63 @@
+commit f8c177060a526d019508728621f988bec9bfb3de
+Author: Topi Pärssinen <parssinentopi@gmail.com>
+Date:   Mon Nov 8 22:28:53 2021 +0200
+
+    2 poistettu
+
+ toinen.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit a394764d628d16d99b4206401a2cee57a9c47e89
+Author: Topi Pärssinen <parssinentopi@gmail.com>
+Date:   Mon Nov 8 22:13:25 2021 +0200
+
+    loru changed
+
+ tiedosto.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 25a2b897fd80cad3c1d0c65c8ce1ee82193d8fa0
+Author: Topi Pärssinen <parssinentopi@gmail.com>
+Date:   Mon Nov 8 22:12:38 2021 +0200
+
+    loru added
+
+ tiedosto.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit b29cc6b7037143eb034e32b4a000dc704eea8e7b
+Author: Topi Pärssinen <parssinentopi@gmail.com>
+Date:   Mon Nov 8 20:48:54 2021 +0200
+
+    kansio ines
+
+ stuff/yo.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 0a971d8319521ad053c675eeaf577c77ea490471
+Author: Topi Pärssinen <parssinentopi@gmail.com>
+Date:   Mon Nov 8 20:47:51 2021 +0200
+
+    3s added
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 40082962829e527109b6bac756592632f1b0a43a
+Author: Topi Pärssinen <parssinentopi@gmail.com>
+Date:   Mon Nov 8 20:46:45 2021 +0200
+
+    muutos & lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 262b6899f5c7c2a91a03b0bb3797c4f923082e92
+Author: Topi Pärssinen <parssinentopi@gmail.com>
+Date:   Mon Nov 8 20:44:16 2021 +0200
+
+    tietosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
