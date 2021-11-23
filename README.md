@@ -1,6 +1,2 @@
-# listen folks
-i am **very much** *le coder master*
-[linkki ekaan](https://github.com/emeraldgcube/ot-harjoitustyo/blob/main/laskarit/viikko1/gitlog.txt)
-[linkki tokaan](https://github.com/emeraldgcube/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
-
-sekä [linkki sinne työaikahommaan](https://github.com/emeraldgcube/ot-harjoitustyo/blob/main/tyoaikakirjanpito.md)
+no hyvä kun huomasin 10 min ennen dedistä että tuolla oli tarkemmatkin ohjeet siihen mitä "ohjelman runko" tarkoittaa.
+noh, hoidan ensi kerraksi kuntoon. Python tiedostossa on kuitenkin duunia tehty
