@@ -7,6 +7,5 @@ Tetris on klassinen peli, jossa pinotaan eri muotoisia palikoita pelikentälle, 
 Sovellus on testattu Python-versiolla 3.8.
 
 ## Dokumentaatio
-- [Käyttöohje](./dokumentaatio/kayttoohje.md)
 - [Vaatimusmäärittely](./dokumentaatio/maarittelydokumentti_tetris.md)
 - [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
