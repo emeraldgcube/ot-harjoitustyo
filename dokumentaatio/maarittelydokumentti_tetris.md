@@ -23,9 +23,18 @@ Pelin jälkeen nähdään tekstikenttä ja "insert name", jonka jälkeen nähdä
 
 ## Perusversion tarjoama toiminnallisuus
 
--Peli toimii kuin pitää, peli kiihtyy clearattujen tasojen tai ajan myötä, palikkaa voi pyörittää vasta- ja myötäpäivään.
-
--Palikan voi holdata ja liikuttaa rivi kerrallaan alas tai tiputtaa suoraan lattiaan.
+- Pelissä on pelikenttä ✔
+- Palikkoja on 7 erilaista ✔
+- Palikkoja voi kääntää ✔
+- Palikat putoaa ✔
+- Palikoita voi siirtää ✔
+- Seuraavan palikan näkee ✔
+- Palikat ei mene rajojen yli
+- Palikat ei mene toistensa päälle
+- Täysi palikkarivi katoaa
+- Palikan voi holdata
+- Pelaaja näkee pisteensä pelatessa ja pelin jälkeen
+- Pelaaja voi tallettaa pisteensä hiscoreen
 
 ### Mitä tarvitsee päättää jossain kohtaa
 
