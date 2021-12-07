@@ -6,4 +6,5 @@
 | 23.11. | 7    | koodin runko tehty |
 | 26.11. | 2    | koodia kehitelty |
 | 29.11. | 7    | päätä hakattu seinään koodin kanssa, asiasanat: palikan kääntäminen |
-| yht   | 17   | | 
+| 7.12.  | 6    | testit tehty mahdolliseksi, riippuvuudet kunnossa, pelikentän reunat, aloitettu matriisin teko
+| yht    | 23   | | 

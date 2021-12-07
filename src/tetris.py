@@ -21,7 +21,6 @@ class Game:
             self.matrix.append([])
             for b in range(0,10):
                 self.matrix[a].append(0)
-
         #self.collision=False
         self.gravity=pygame.time.set_timer(25, int(1000/self.speed))
         self.loop()
@@ -66,7 +65,7 @@ class Game:
                     self.control="cw"
 
             if event.type == 25:
-                self.all_tetriminos[-2][2]=self.all_tetriminos[-2][2][0]+1, self.all_tetriminos[-2][2][1]
+                self.control = "down"
 
         #new block on the game field
     def new_tetrimino(self):
@@ -109,22 +108,26 @@ class Game:
     def controls(self):
         position=self.all_tetriminos[-2][2]
         if self.control=="left":
-            self.all_tetriminos[-2][2]=position[0], position[1]-1
+            newpos=position[0], position[1]-1
             self.control=""
-
+        self.all_tetriminos[-2][2]
         if self.control=="down":
-            self.all_tetriminos[-2][2]=position[0]+1, position[1]
+            newpos=position[0]+1, position[1]
             self.control=""
-            print(self.all_tetriminos)
+        self.all_tetriminos[-2][2]
 
         if self.control=="right":
-            self.all_tetriminos[-2][2]=position[0], position[1]+1
+            newpos=position[0], position[1]+1
             self.control=""
-
+        
+        self.all_tetriminos[-2][2]=newpos
         if self.control=="ccw":
             self.all_tetriminos[-2][1]
        # if self.control=="cw":
         #    self.all_tetriminos[-2]
+    
+    def intersects(self):
+        if self.control==
 
         #screen draw
     def draw_screen(self):
