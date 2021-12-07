@@ -1,5 +1,6 @@
 import unittest
 from tetris import Game
+
 class TestBlock(unittest.TestCase):
 	def setUp(self):
 	    print("Setup")
