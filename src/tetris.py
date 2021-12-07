@@ -1,5 +1,6 @@
 import pygame
 import random
+import os
 
 class Game:
     #initalizement settings
@@ -45,7 +46,7 @@ class Game:
     def go_throught_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                exit()
+                os._exit(1)
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
                     self.control="left"
