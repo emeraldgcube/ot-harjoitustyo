@@ -7,11 +7,11 @@ def foo(ctx):
 
 @task
 def start(ctx):
-    ctx.run("python3 src/tetris.py")
+    ctx.run("python3 tetris.py")
 
 @task
 def test(ctx):
-    ctx.run("pytest src")
+    ctx.run("pytest")
 
 @task
 def coverage(ctx):

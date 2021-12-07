@@ -15,8 +15,13 @@ class Game:
         self.control=""
         self.time1=0
         self.rotation=0
-        #self.collision=False
         self.matrix=[]
+        for a in range(0,22):
+            self.matrix.append([])
+            for b in range(0,10):
+                self.matrix[a].append(0)
+
+        #self.collision=False
         self.gravity=pygame.time.set_timer(25, int(1000/self.speed))
         self.loop()
 
@@ -90,7 +95,7 @@ class Game:
             blocks=[[(0,0), (1,0), (1,1), (1,2)], [(2,0), (2,1), (1,1), (0,1)], 
                     [(0,0), (0,1), (0,2), (1,2)], [(0,0), (0,1), (1,0), (2,0)]]
         if tetrimino==4: # I
-            blocks=[[(0,0), (1,0), (2,0), (3,0)], [(1,0), (1,1), (1,2), (1,3)]]
+            blocks=[[(0,1), (1,1), (2,1), (3,1)], [(1,0), (1,1), (1,2), (1,3)]]
         if tetrimino==5: # S
             blocks=[[(0,0), (1,0), (1,1), (2,1)], [(1,0), (1,1), (0,1), (0,2)]]
         if tetrimino==6: # Z
