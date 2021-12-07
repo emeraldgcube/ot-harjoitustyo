@@ -8,12 +8,12 @@ Sovellus on testattu Python-versiolla 3.8.
 
 ## Käyttö 
 
-1. Asenna riippuvuudet ajamalla komentoriviltä ´poetry install´
-2. Käynnistä peli komennolla ´poetry run invoke start´
+1. Asenna riippuvuudet ajamalla komentoriviltä `poetry install`
+2. Käynnistä peli komennolla `poetry run invoke start`
 
 ## Testit
 
-1. Aja komento ´poetry run pytest´ src-kansiossa
+1. Aja komento `poetry run pytest` src-kansiossa
 
 ## Dokumentaatio
 - [Vaatimusmäärittely](./dokumentaatio/maarittelydokumentti_tetris.md)
