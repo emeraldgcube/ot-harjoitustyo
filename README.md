@@ -4,7 +4,7 @@ Tetris on klassinen peli, jossa pinotaan eri muotoisia palikoita pelikentälle, 
 
 ##
 
-- [Release] (./releases/tag/viikko6)
+- [Release](https://github.com/emeraldgcube/ot-harjoitustyo/releases/tag/viikko6)
 ## Python-versio
 
 Sovellus on testattu Python-versiolla 3.8.
