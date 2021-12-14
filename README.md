@@ -30,7 +30,7 @@ Raportti generoituu _htmlcov_-hakemistoon.
 
 ## Pylint
 
-Tiedoston [.pylintrc](./.pylintrc) määräämät tarkistukset voi suorittaa komennolla:
+.pylintrc-tiedoston määräämät tarkistukset voi suorittaa komennolla:
 
 ```bash
 poetry run invoke lint
