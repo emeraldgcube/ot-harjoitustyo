@@ -1,10 +1,5 @@
 from invoke import task
 
-@task
-def foo(ctx):
-    print("bar")
-
-@task
 def start(ctx):
     ctx.run("python3 index.py")
 
@@ -19,3 +14,7 @@ def coverage(ctx):
 @task()
 def coverage_report(ctx):
     ctx.run("coverage html")
+
+@task
+def lint(ctx):
+    ctx.run("pylint src")
