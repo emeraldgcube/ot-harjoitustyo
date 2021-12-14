@@ -1,25 +1,39 @@
 import pygame
-from tetris import Game
+from pygame import event
+from clock import Clock
+from level import Level
+from renderer import Renderer
+from game_loop import GameLoop
+from event_queue import EventQueue
+
 def main():
     pygame.init()
-    self.new_game()
-    self.scale=30
-    self.screen_width=26*self.scale
-    screen_height=22*self.scale
-    window = pygame.display.set_mode((self.screen_width, self.screen_height))
-    self.clock=pygame.time.Clock()
-    self.position=2
-    self.control=""
-    self.time1=0
-    self.rotation=0
-    self.matrix=[]
+    pygame.display.set_caption("Tetris")
+    #new_game()
+    scale=30
+    screen_width=26*scale
+    screen_height=22*scale
+    window = pygame.display.set_mode((screen_width, screen_height))
+
+    clock=Clock()
+    position=2
+    control=""
+    time1=0
+    rotation=0
+    matrix=[]
     for a in range(0,22):
-        self.matrix.append([])
+        matrix.append([])
         for b in range(0,10):
-            self.matrix[a].append(0)
-    #self.collision=False
-    self.gravity=pygame.time.set_timer(25, int(1000/self.speed))
-    self.loop()
+            matrix[a].append(0)
+    #collision=False
+    
+    level=Level()
+    event_queue=EventQueue()
+    renderer=Renderer(window, level, scale)
+    loop=GameLoop(level, renderer, event_queue, clock, scale)
+    loop.start()
+
+main()
 
 
 
@@ -63,31 +77,3 @@ def main():
 
 
 
-
-
-
-
-    def go_throught_events(self):
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
-                    self.control="left"
-                if event.key == pygame.K_RIGHT:
-                    self.control="right"
-                if event.key == pygame.K_SPACE:
-                    self.drop()
-                if event.key == pygame.K_DOWN:
-                    self.control="down"
-                if event.key == pygame.K_UP:
-                    self.all_tetriminos[-2][3]+=1
-
-                    #rotating clockwise and counter-clockwise
-                if event.key == pygame.K_a:
-                    self.control="countercw"
-                if event.key == pygame.K_d:
-                    self.control="cw"
-
-            if event.type == 25:
-                self.all_tetriminos[-2][2]=self.all_tetriminos[-2][2][0]+1, self.all_tetriminos[-2][2][1]

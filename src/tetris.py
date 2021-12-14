@@ -52,7 +52,7 @@ class Game:
                 if event.key == pygame.K_RIGHT:
                     self.control="right"
                 if event.key == pygame.K_SPACE:
-                    self.drop()
+                    self.control="drop"
                 if event.key == pygame.K_DOWN:
                     self.control="down"
                 if event.key == pygame.K_UP:
@@ -109,25 +109,46 @@ class Game:
         position=self.all_tetriminos[-2][2]
         if self.control=="left":
             newpos=position[0], position[1]-1
+            print (self.intersects(newpos))
+            if not self.intersects(newpos):
+                self.all_tetriminos[-2][2]=newpos
+            
             self.control=""
-        self.all_tetriminos[-2][2]
+
         if self.control=="down":
             newpos=position[0]+1, position[1]
+            if self.intersects(newpos):
+                self.new_tetrimino()
+            else:
+                self.all_tetriminos[-2][2]=newpos
             self.control=""
-        self.all_tetriminos[-2][2]
 
         if self.control=="right":
-            newpos=position[0], position[1]+1
+            newpos=position[0], position[1]+1     
+            if not self.intersects(newpos):
+                self.all_tetriminos[-2][2]=newpos
             self.control=""
-        
-        self.all_tetriminos[-2][2]=newpos
+    
         if self.control=="ccw":
             self.all_tetriminos[-2][1]
        # if self.control=="cw":
         #    self.all_tetriminos[-2]
-    
-    def intersects(self):
-        if self.control==
+
+        if self.control=="drop":  
+            newpos=position[0]+1, position[1]
+            for _ in range(22):
+                if self.intersects(newpos)==False:
+                    self.control="down"
+            self.control=""
+            
+
+    def intersects(self, position):
+        tetrimino = self.all_tetriminos[-2].copy()
+        tetrimino[2]=position
+        for block in tetrimino[1][tetrimino[3]%len(tetrimino[1])]:
+            if block[0]+tetrimino[2][0]>=22 or block[1]+tetrimino[2][1]>=10 or block[1]+tetrimino[2][1]<0:
+                return True
+        return False
 
         #screen draw
     def draw_screen(self):
@@ -152,9 +173,10 @@ class Game:
                     color=0, 255, 255
                 if tetrimino[0]==6:
                     color=100, 100, 255
+                                                #checks for angle
                 for block in tetrimino[1][tetrimino[3]%len(tetrimino[1])]:
                     #field is supposed to start at (8,-2)
-                    y=block[0]*self.scale+2*self.scale+self.scale*tetrimino[2][0]
+                    y=block[0]*self.scale+self.scale*tetrimino[2][0]
                     x=block[1]*self.scale+8*self.scale+self.scale*tetrimino[2][1]
                     pygame.draw.rect(self.window, color, pygame.Rect(x, y, self.scale, self.scale))
             

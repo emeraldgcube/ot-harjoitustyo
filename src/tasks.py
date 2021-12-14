@@ -1,5 +1,4 @@
 from invoke import task
-from tetris import Game
 
 @task
 def foo(ctx):
@@ -7,7 +6,7 @@ def foo(ctx):
 
 @task
 def start(ctx):
-    ctx.run("python3 tetris.py")
+    ctx.run("python3 index.py")
 
 @task
 def test(ctx):
