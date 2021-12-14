@@ -15,6 +15,25 @@ Sovellus on testattu Python-versiolla 3.8.
 
 1. Aja komento `poetry run pytest` src-kansiossa
 
+## Testikattavuus
+
+Testikattavuusraportin voi generoida komennolla:
+
+```bash
+poetry run invoke coverage-report
+```
+
+Raportti generoituu _htmlcov_-hakemistoon.
+
+## Pylint
+
+Tiedoston [.pylintrc](./.pylintrc) määräämät tarkistukset voi suorittaa komennolla:
+
+```bash
+poetry run invoke lint
+```
+
+
 ## Dokumentaatio
 - [Vaatimusmäärittely](./dokumentaatio/maarittelydokumentti_tetris.md)
 - [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
