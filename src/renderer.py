@@ -18,9 +18,35 @@ class Renderer:
         pygame.draw.rect(self._display, (0, 255, 0),
                          [int(18.6*self._scale), 0, self._scale*7.4, self._scale*22])
 
-        for tetrimino in self._level.all_tetriminos:
-            if tetrimino[0] == 0:
-                color = 255, 0, 0
+
+        for row in range(0, 22):
+            for column in range(0, 10):
+                number=self._level.matrix[row][column]
+                if number == 1:
+                    color = 0, 255, 0
+                if number == 2:
+                    color = 0, 0, 255
+                if number == 3:
+                    color = 255, 255, 0
+                if number == 4:
+                    color = 255, 0, 255
+                if number == 5:
+                    color = 0, 255, 255
+                if number == 6:
+                    color = 100, 100, 255
+                if number == 7:
+                    color = 255, 0, 0
+                if number == 0:
+                    color = 0, 0, 0
+
+                y_coord = row*self._scale
+                x_coord = column*self._scale+8*self._scale
+                pygame.draw.rect(self._display, color, 
+                pygame.Rect(x_coord, y_coord, self._scale, self._scale))
+
+
+        for a in range(0, 2):
+            tetrimino = self._level.all_tetriminos[-(a+1)]
             if tetrimino[0] == 1:
                 color = 0, 255, 0
             if tetrimino[0] == 2:
@@ -33,6 +59,8 @@ class Renderer:
                 color = 0, 255, 255
             if tetrimino[0] == 6:
                 color = 100, 100, 255
+            if tetrimino[0] == 7:
+                color = 255, 0, 0
             for block in tetrimino[1][tetrimino[3]%len(tetrimino[1])]:
                 #field is supposed to start at (8,-2)
                 y_coord = block[0]*self._scale+self._scale*tetrimino[2][0]

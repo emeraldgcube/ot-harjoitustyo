@@ -22,6 +22,7 @@ class Level:
         tetrimino = self._random.randint_zero_to_six()
         if tetrimino == 0:
             blocks = [[(0, 0), (0, 1), (1, 0), (1, 1)]]
+            tetrimino = 7
         if tetrimino == 1: # T
             blocks = [[(0, 1), (1, 0), (1, 1), (2, 1)], [(0, 0), (0, 1), (0, 2), (1, 1)],
                       [(0, 0), (1, 0), (1, 1), (2, 0)], [(0, 1), (1, 0), (1, 1), (1, 2)]]
@@ -38,11 +39,39 @@ class Level:
         if tetrimino == 6: # Z
             blocks = [[(1, 0), (2, 0), (0, 1), (1, 1)], [(0, 0), (0, 1), (1, 1), (1, 2)]]
         self.all_tetriminos.append([tetrimino, blocks, (3, 13), 0])
-
-
+                                 #  blocktypes, blocks, location, rotation
+                                 #  x and y   ,
     def _new_tetrimino(self):
         self._generate_tetrimino()
+        if len(self.all_tetriminos)>2:
+            tetrimino=self.all_tetriminos[-3]
+            for block in range(0, 4):
+                block_positions = tetrimino[1][tetrimino[3]%len(tetrimino[1])][block]
+                tetrimino_pos = tetrimino[2]
+                index_1 = block_positions[0]+tetrimino_pos[0]
+                index_2 = block_positions[1]+tetrimino_pos[1]
+                self.matrix[index_1][index_2]=tetrimino[0]  
+            self._check_for_full_row()
         self.all_tetriminos[-2][2] = (0, 4)
+
+    def _check_for_full_row(self):
+        for row in range(0,22):
+            block_amount=0
+            for block in self.matrix[row]:
+                if block != 0:
+                    block_amount+=1
+            if block_amount == 10:
+                self._clear_row(row)
+
+        
+    def _clear_row(self, cleared_row):
+        for row in range(0, cleared_row):
+            """moves columns downwards by one starting from the lowest"""
+            for block in range(10):
+                self.matrix[cleared_row-row][block]=self.matrix[cleared_row-row-1][block]
+        print ("kalja")
+
+                
 
     def controls(self):
         position = self.all_tetriminos[-2][2]
@@ -72,15 +101,17 @@ class Level:
         #    self.all_tetriminos[-2]
 
         if self.control == "drop":
-            newpos = position[0]+1, position[1]
-            for _ in range(22):
-                if not self.intersects(newpos):
-                    self.control = "down"
+            newpos = position[0] + 1, position[1]
+            if not self.intersects(newpos):
+                self.all_tetriminos[-2][2] = newpos
+                self.control = "drop"
+                self.controls()
+        
             self.control = ""
 
         if self.control == "rotate":
-            1+1
-        #self._level.all_tetriminos[-2][3]+=1
+            self.all_tetriminos[-2][3] += 1
+            self.control = ""
 
 
     def intersects(self, position):
@@ -89,8 +120,12 @@ class Level:
         tetrimino = self.all_tetriminos[-2].copy()
         tetrimino[2] = position
         for block in tetrimino[1][tetrimino[3]%len(tetrimino[1])]:
+            y_coord=block[0]+tetrimino[2][0]
+            x_coord=block[1]+tetrimino[2][1]
             if (block[0]+tetrimino[2][0] >= 22 or
                     block[1]+tetrimino[2][1] >= 10 or
-                    block[1]+tetrimino[2][1] < 0):
+                    block[1]+tetrimino[2][1] < 0 or
+                    self.matrix[y_coord][x_coord]
+                    ):
                 return True
         return False
