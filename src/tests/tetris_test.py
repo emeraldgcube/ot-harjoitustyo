@@ -19,7 +19,7 @@ class TestLevel(unittest.TestCase):
 
     def test_block_generates(self):
         self.assertEqual(self.level.all_tetriminos,
-        [[0, [[(0, 0), (0, 1), (1, 0), (1, 1)]], (0, 4), 0],
+        [[7, [[(0, 0), (0, 1), (1, 0), (1, 1)]], (0, 4), 0],
          [5, [[(0, 0), (1, 0), (1, 1), (2, 1)], [(1, 0), (1, 1), (0, 1), (0, 2)]], (3, 13), 0]])
 
   #  def test_block_2(self:

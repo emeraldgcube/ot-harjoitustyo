@@ -1,5 +1,6 @@
 from invoke import task
 
+@task
 def start(ctx):
     ctx.run("python3 index.py")
 
@@ -11,8 +12,8 @@ def test(ctx):
 def coverage(ctx):
     ctx.run("coverage run --branch -m pytest")
 
-@task()
-def coverage_report(ctx):
+@task
+def coveragereport(ctx):
     ctx.run("coverage html")
 
 @task
