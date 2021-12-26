@@ -29,9 +29,9 @@ Pelin jälkeen nähdään tekstikenttä ja "insert name", jonka jälkeen nähdä
 - Palikat putoaa ✔
 - Palikoita voi siirtää ✔
 - Seuraavan palikan näkee ✔
-- Palikat ei mene rajojen yli ✔ (tällä kertaa oikeasti)
-- Palikat ei mene toistensa päälle
-- Täysi palikkarivi katoaa
+- Palikat ei mene rajojen yli ✔ 
+- Palikat ei mene toistensa päälle ✔
+- Täysi palikkarivi katoaa ✔
 - Palikan voi holdata
 - Pelaaja näkee pisteensä pelatessa ja pelin jälkeen
 - Pelaaja voi tallettaa pisteensä hiscoreen
