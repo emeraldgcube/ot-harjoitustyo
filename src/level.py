@@ -1,5 +1,5 @@
 import pygame
-
+import tetrimino
 
 class Level:
     def __init__(self, random):
@@ -16,13 +16,11 @@ class Level:
         """generates one block before adding new one on playfield"""
         self._generate_tetrimino()
         self._new_tetrimino()
+        self.game_over=False
         
 
     def _generate_tetrimino(self):
-        tetrimino = self._random.randint_zero_to_six()
-        if tetrimino == 0:
-            blocks = [[(0, 0), (0, 1), (1, 0), (1, 1)]]
-            tetrimino = 7
+        tetrimino = self._random.randint_one_to_seven()
         if tetrimino == 1: # T
             blocks = [[(0, 1), (1, 0), (1, 1), (2, 1)], [(0, 0), (0, 1), (0, 2), (1, 1)],
                       [(0, 0), (1, 0), (1, 1), (2, 0)], [(0, 1), (1, 0), (1, 1), (1, 2)]]
@@ -38,6 +36,8 @@ class Level:
             blocks = [[(0, 0), (1, 0), (1, 1), (2, 1)], [(1, 0), (1, 1), (0, 1), (0, 2)]]
         if tetrimino == 6: # Z
             blocks = [[(1, 0), (2, 0), (0, 1), (1, 1)], [(0, 0), (0, 1), (1, 1), (1, 2)]]
+        if tetrimino == 7:
+            blocks = [[(0, 0), (0, 1), (1, 0), (1, 1)]]
         self.all_tetriminos.append([tetrimino, blocks, (3, 13), 0])
                                  #  blocktypes, blocks, location, rotation
                                  #  x and y   ,
@@ -53,6 +53,12 @@ class Level:
                 self.matrix[index_1][index_2]=tetrimino[0]  
             self._check_for_full_row()
         self.all_tetriminos[-2][2] = (0, 4)
+        if self.intersects(self.all_tetriminos[-2][2], self.all_tetriminos[-2][3]):
+            self._game_over()
+
+
+    def _game_over(self):
+        self.game_over=True
 
     def _check_for_full_row(self):
         for row in range(0,22):
@@ -69,7 +75,6 @@ class Level:
             """moves columns downwards by one starting from the lowest"""
             for block in range(10):
                 self.matrix[cleared_row-row][block]=self.matrix[cleared_row-row-1][block]
-        print ("kalja")
 
                 
 
@@ -77,13 +82,16 @@ class Level:
         position = self.all_tetriminos[-2][2]
         if self.control == "left":
             newpos = position[0], position[1]-1
-            if not self.intersects(newpos):
+            angle = self.all_tetriminos[-2][3]
+            if not self.intersects(newpos, angle):
                 self.all_tetriminos[-2][2] = newpos
             self.control = ""
 
         if self.control == "down":
             newpos = position[0]+1, position[1]
-            if self.intersects(newpos):
+            angle = self.all_tetriminos[-2][3]
+
+            if self.intersects(newpos, angle):
                 self._new_tetrimino()
             else:
                 self.all_tetriminos[-2][2] = newpos
@@ -91,7 +99,8 @@ class Level:
 
         if self.control == "right":
             newpos = position[0], position[1]+1
-            if not self.intersects(newpos):
+            angle = self.all_tetriminos[-2][3]
+            if not self.intersects(newpos, angle):
                 self.all_tetriminos[-2][2] = newpos
             self.control = ""
 
@@ -102,7 +111,9 @@ class Level:
 
         if self.control == "drop":
             newpos = position[0] + 1, position[1]
-            if not self.intersects(newpos):
+            angle = self.all_tetriminos[-2][3]
+
+            if not self.intersects(newpos, angle):
                 self.all_tetriminos[-2][2] = newpos
                 self.control = "drop"
                 self.controls()
@@ -110,22 +121,24 @@ class Level:
             self.control = ""
 
         if self.control == "rotate":
-            self.all_tetriminos[-2][3] += 1
+            newangle = self.all_tetriminos[-2][3] + 1
+            if not self.intersects(position, newangle):
+                self.all_tetriminos[-2][3] += 1
             self.control = ""
 
 
-    def intersects(self, position):
+    def intersects(self, position, angle):
         """Checks for intersecting blocks on path of block 
         """
         tetrimino = self.all_tetriminos[-2].copy()
         tetrimino[2] = position
-        for block in tetrimino[1][tetrimino[3]%len(tetrimino[1])]:
+        for block in tetrimino[1][angle%len(tetrimino[1])]:
             y_coord=block[0]+tetrimino[2][0]
             x_coord=block[1]+tetrimino[2][1]
             if (block[0]+tetrimino[2][0] >= 22 or
                     block[1]+tetrimino[2][1] >= 10 or
                     block[1]+tetrimino[2][1] < 0 or
-                    self.matrix[y_coord][x_coord]
+                    self.matrix[y_coord][x_coord] != 0
                     ):
                 return True
         return False

@@ -12,7 +12,7 @@ class GameLoop:
         self._clock.set_timer(25, int(1000/self._level.speed))
 
     def start(self):
-        while True:
+        while self._level.game_over == False:
             self.go_throught_events()
             self._renderer.render()
             self._level.controls()

@@ -17,6 +17,8 @@ class Renderer:
                          [0, 0, self._scale*7.4, self._scale*22])
         pygame.draw.rect(self._display, (0, 255, 0),
                          [int(18.6*self._scale), 0, self._scale*7.4, self._scale*22])
+        pygame.draw.rect(self._display, (0, 0, 0),
+                         [int(20*self._scale), int(2.5*self._scale), self._scale*4.6, self._scale*5])
 
 
         for row in range(0, 22):
