@@ -9,4 +9,7 @@
 | 7.12.  | 6    | testit tehty mahdolliseksi, riippuvuudet kunnossa, pelikentän reunat, aloitettu matriisin teko ʒ
 | 13.12. | 2    | edistetty toimintojen jakamista eri tiedostoihin |
 | 14.12. | 7    | pylint, jakaminen, testaus |
-| yht    | 32   | | 
+| 23.12. | 7    | koodaus, testien säätö |
+| 25.12. | 3    | pelin saattaminen loppuun |
+| 26.12. | 5    |vikat setitykset
+| yht    | 47   | | 
