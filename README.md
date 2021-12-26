@@ -1,6 +1,6 @@
 # Tetris
 
-Tetris on klassinen peli, jossa pinotaan eri muotoisia palikoita pelikentälle, tavoitteena saada virheettömiä rivejä aikaiseksi. Peli on vielä vaiheessa.
+Tetris on klassinen peli, jossa pinotaan eri muotoisia palikoita pelikentälle, tavoitteena saada virheettömiä rivejä aikaiseksi. 
 
 ##
 
